@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
 
   const [showIndex, setShowIndex] = useState(true);
-
+  const [classes, setClasses] = useState([])
   const style = {
     backgroundColor: 'green',
     color: 'white',
@@ -14,9 +15,15 @@ function App() {
   };
 
   let index = null
+
   if(showIndex) {
     style.backgroundColor = 'red';
-    index = (<div>This is Index</div>);
+    index = (
+      <div>
+        <p className={classes.join(' ')}>This is Index</p>
+        <button onClick={() => setClasses([...classes, 'red'])}>Red</button><button onClick={() => setClasses([...classes, 'bold'])}>Bold</button>
+      </div>
+      );
   }
 
   const handleToggleIndex = () => setShowIndex(!showIndex);
