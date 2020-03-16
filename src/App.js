@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Radium from 'radium';
 
 function App() {
 
@@ -13,13 +14,21 @@ function App() {
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':hover': {
+      backgroundColor: 'lightgreen',
+      color: 'black'
+    }
   };
 
   let index = null
 
   if(showIndex) {
     style.backgroundColor = 'red';
+    style[':hover']= {
+      backgroundColor: 'lightred',
+      color: 'black'
+    };
     index = (
       <div>
         <p className={`${isRed ? 'red' : ''} ${isBold ? 'bold' : ''}`}>This is Index</p>
@@ -44,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default Radium(App);
