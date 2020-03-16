@@ -4,7 +4,9 @@ import './App.css';
 function App() {
 
   const [showIndex, setShowIndex] = useState(true);
-  const [classes, setClasses] = useState([])
+  const [isRed, setRed] = useState(false);
+  const [isBold, setBold] = useState(false);
+  
   const style = {
     backgroundColor: 'green',
     color: 'white',
@@ -20,8 +22,8 @@ function App() {
     style.backgroundColor = 'red';
     index = (
       <div>
-        <p className={classes.join(' ')}>This is Index</p>
-        <button onClick={() => setClasses([...classes, 'red'])}>Red</button><button onClick={() => setClasses([...classes, 'bold'])}>Bold</button>
+        <p className={`${isRed ? 'red' : ''} ${isBold ? 'bold' : ''}`}>This is Index</p>
+        <button onClick={() => setRed(!isRed)}><div className='red'>Red</div></button><button onClick={() => setBold(!isBold)}><div className='bold'>Bold</div></button>
       </div>
       );
   }
